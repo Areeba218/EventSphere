@@ -3,9 +3,24 @@ const Event = require("../models/Event");
 // Create Event
 const createEvent = async (req, res) => {
   try {
-    const { title, description, date, location, category, image } = req.body;
+    const {
+      title,
+      description,
+      date,
+      location,
+      category,
+      theme,
+      image,
+    } = req.body;
 
-    if (!title || !description || !date || !location || !category) {
+    if (
+      !title ||
+      !description ||
+      !date ||
+      !location ||
+      !category ||
+      !theme
+    ) {
       return res.status(400).json({
         message: "Please fill all required fields",
       });
@@ -17,6 +32,7 @@ const createEvent = async (req, res) => {
       date,
       location,
       category,
+      theme,
       image,
     });
 

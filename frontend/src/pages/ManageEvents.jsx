@@ -4,7 +4,6 @@ import AdminNavbar from "../components/AdminNavbar";
 const ManageEvents = () => {
   const [events, setEvents] = useState([]);
   const [message, setMessage] = useState("");
-
   const [editingEvent, setEditingEvent] = useState(null);
 
   const fetchEvents = async () => {
@@ -63,6 +62,7 @@ const ManageEvents = () => {
     setEditingEvent({
       ...event,
       date: event.date.split("T")[0],
+      theme: event.theme || "",
     });
 
     setMessage("");
@@ -92,6 +92,7 @@ const ManageEvents = () => {
             date: editingEvent.date,
             location: editingEvent.location,
             category: editingEvent.category,
+            theme: editingEvent.theme,
             image: editingEvent.image,
           }),
         }
@@ -185,6 +186,19 @@ const ManageEvents = () => {
               </div>
 
               <div>
+                <label>Theme</label>
+
+                <input
+                  type="text"
+                  name="theme"
+                  value={editingEvent.theme}
+                  onChange={handleEditChange}
+                  placeholder="Example: Future of Technology"
+                  required
+                />
+              </div>
+
+              <div>
                 <label>Image URL</label>
 
                 <input
@@ -235,6 +249,11 @@ const ManageEvents = () => {
                 <p>
                   <strong>Category:</strong>{" "}
                   {event.category}
+                </p>
+
+                <p>
+                  <strong>Theme:</strong>{" "}
+                  {event.theme || "Not specified"}
                 </p>
 
                 {event.image && (

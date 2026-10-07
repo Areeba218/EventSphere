@@ -30,6 +30,12 @@ const eventSchema = new mongoose.Schema(
       trim: true,
     },
 
+    theme: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+
     image: {
       type: String,
       default: "",

@@ -8,6 +8,7 @@ const AddEvent = () => {
     date: "",
     location: "",
     category: "",
+    theme: "",
     image: "",
   });
 
@@ -24,13 +25,16 @@ const AddEvent = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:5000/api/admin/events", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        "http://localhost:5000/api/admin/events",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
 
       const data = await response.json();
 
@@ -43,6 +47,7 @@ const AddEvent = () => {
           date: "",
           location: "",
           category: "",
+          theme: "",
           image: "",
         });
       } else {
@@ -65,6 +70,7 @@ const AddEvent = () => {
         <form onSubmit={handleSubmit}>
           <div>
             <label>Event Title</label>
+
             <input
               type="text"
               name="title"
@@ -77,6 +83,7 @@ const AddEvent = () => {
 
           <div>
             <label>Description</label>
+
             <textarea
               name="description"
               value={formData.description}
@@ -88,6 +95,7 @@ const AddEvent = () => {
 
           <div>
             <label>Date</label>
+
             <input
               type="date"
               name="date"
@@ -99,6 +107,7 @@ const AddEvent = () => {
 
           <div>
             <label>Location</label>
+
             <input
               type="text"
               name="location"
@@ -111,6 +120,7 @@ const AddEvent = () => {
 
           <div>
             <label>Category</label>
+
             <input
               type="text"
               name="category"
@@ -122,7 +132,21 @@ const AddEvent = () => {
           </div>
 
           <div>
+            <label>Theme</label>
+
+            <input
+              type="text"
+              name="theme"
+              value={formData.theme}
+              onChange={handleChange}
+              placeholder="Example: Future of Technology"
+              required
+            />
+          </div>
+
+          <div>
             <label>Image URL</label>
+
             <input
               type="text"
               name="image"
