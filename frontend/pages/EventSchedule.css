@@ -1,0 +1,86 @@
+
+.schedule-form-section {
+    max-width: 750px;
+    margin: 0 auto 45px;
+    padding: 28px;
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+}
+
+.schedule-form-section h2 {
+    margin-top: 0;
+}
+
+.schedule-form-section > p {
+    color: #6b7280;
+}
+
+.schedule-form {
+    display: grid;
+    gap: 18px;
+    margin-top: 24px;
+}
+
+.schedule-form label {
+    display: grid;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.schedule-form input,
+.schedule-form textarea,
+.schedule-form select {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font: inherit;
+    background: white;
+    color: #1f2937;
+}
+
+.schedule-form textarea {
+    min-height: 90px;
+    resize: vertical;
+}
+
+.schedule-time-fields {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.schedule-form button {
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    background: #5b21b6;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.schedule-form button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.schedule-success {
+    margin-top: 18px;
+    color: #15803d;
+    font-weight: 600;
+}
+
+@media (max-width: 500px) {
+    .schedule-form-section {
+        padding: 18px;
+    }
+
+    .schedule-time-fields {
+        grid-template-columns: 1fr;
+    }
+}

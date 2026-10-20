@@ -1,0 +1,103 @@
+
+/* Main page */
+.expo-list-page {
+  min-height: 100vh;
+  padding: 35px;
+  background: #0b0618;
+  color: #f8f7ff;
+  font-family: Arial, sans-serif;
+}
+
+/* Page heading */
+.page-title {
+  margin: 0 0 10px;
+  font-size: 32px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+/* Short text under heading */
+.page-subtitle {
+  margin-bottom: 30px;
+  color: #b9b3d1;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* Cards layout */
+.expo-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+/* Individual expo card */
+.expo-card {
+  padding: 24px;
+  background: linear-gradient(145deg, #101a45, #190d29);
+  border: 1px solid #292653;
+  border-radius: 12px;
+  transition: transform 0.25s, border-color 0.25s;
+}
+
+/* Hover effect */
+.expo-card:hover {
+  transform: translateY(-5px);
+  border-color: #1769ff;
+}
+
+/* Expo name */
+.expo-card h2 {
+  margin-top: 0;
+  margin-bottom: 18px;
+  font-size: 21px;
+  color: #ffffff;
+}
+
+/* Date, location, description */
+.expo-card p {
+  margin: 12px 0;
+  color: #c3bdd8;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* View Details button */
+.expo-card button {
+  margin-top: 12px;
+  padding: 12px 18px;
+  background: linear-gradient(90deg, #1769ff, #ed29bd);
+  border: none;
+  border-radius: 7px;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.expo-card button:hover {
+  opacity: 0.85;
+}
+
+/* Tablets */
+@media (max-width: 900px) {
+  .expo-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Mobile phones */
+@media (max-width: 600px) {
+  .expo-list-page {
+    padding: 20px;
+  }
+
+  .expo-list {
+    grid-template-columns: 1fr;
+  }
+
+  .page-title {
+    font-size: 26px;
+  }
+}
