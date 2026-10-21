@@ -6,20 +6,32 @@ require("dotenv").config();
 
 const ExhibitorRoutes = require("./routes/ExhibitorRoutes");
 const ApplicationRoutes = require("./routes/ApplicationRoutes");
+const boothRoutes = require("./routes/boothRoute");
+const scheduleRoutes = require("./routes/scheduleRoute");
 
 const app = express();
 
+// Middleware
 app.use(cors());
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
+// API Routes
 app.use("/api/exhibitor", ExhibitorRoutes);
 app.use("/api/applications", ApplicationRoutes);
+app.use("/api/booths", boothRoutes);
+app.use("/api/schedules", scheduleRoutes);
 
+// Test Route
 app.get("/", (req, res) => {
-    res.send("EventSphere API is running");
+    res.json({
+        message: "EventSphere Backend is running"
+    });
 });
 
-mongoose.connect(process.env.MONGODB_URI)
+// MongoDB Connection
+mongoose
+    .connect(process.env.MONGODB_URI)
     .then(() => {
         console.log("MongoDB connected");
 
@@ -30,6 +42,5 @@ mongoose.connect(process.env.MONGODB_URI)
         });
     })
     .catch((error) => {
-        console.log("MongoDB connection failed");
-        console.log(error);
+        console.error("MongoDB connection failed:", error.message);
     });
